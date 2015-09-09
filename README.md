@@ -3,7 +3,7 @@ Wildfly - CentOS Docker image
 
 This repository contains the source for building various versions of
 the WildFly application as a reproducible Docker image using
-[source-to-image](https://github.com/openshift/source-to-image).
+[source-to-image](https://github.com/Meros-io/source-to-image).
 The resulting image can be run using [Docker](http://docker.io).
 
 Versions
@@ -21,13 +21,13 @@ Installation
 This image is available on DockerHub.  To download it, run:
 
 ```
-$ docker pull openshift/wildfly-81-centos7
+$ docker pull deploydock/wildfly-81-centos7
 ```
 
 To build a WildFly image from scratch, run:
 
 ```
-$ git clone https://github.com/openshift/sti-wildfly.git
+$ git clone https://github.com/Meros-io/sti-wildfly.git
 $ cd sti-wildfly
 $ make build VERSION=8.1
 ```
@@ -38,12 +38,12 @@ version `8.1`, you can omit this parameter.**
 
 Usage
 ---------------------
-To build a simple [jee application](https://github.com/bparees/openshift-jee-sample)
-using standalone [S2I](https://github.com/openshift/source-to-image) and then run the
+To build a simple [jee application](https://github.com/Meros-io/deploydock-jee-sample)
+using standalone [S2I](https://github.com/Meros-io/source-to-image) and then run the
 resulting image with [Docker](http://docker.io) execute:
 
 ```
-$ s2i build git://github.com/bparees/openshift-jee-sample openshift/wildfly-81-centos7 wildflytest
+$ s2i build git://github.com/Meros-io/deploydock-jee-sample deploydock/wildfly-81-centos7 wildflytest
 $ docker run -p 8080:8080 wildflytest
 ```
 
@@ -54,7 +54,7 @@ $ curl 127.0.0.1:8080
 
 Test
 ---------------------
-This repository also provides a [S2I](https://github.com/openshift/source-to-image) test framework,
+This repository also provides a [S2I](https://github.com/Meros-io/source-to-image) test framework,
 which launches tests to check functionality of a simple WildFly application built on top of the wildfly image.
 
 *  **CentOS based image**
@@ -79,7 +79,7 @@ Repository organization
 
     * **`s2i/bin/`**
 
-        This folder contains scripts that are run by [S2I](https://github.com/openshift/source-to-image):
+        This folder contains scripts that are run by [S2I](https://github.com/Meros-io/source-to-image):
 
         *   **assemble**
 
@@ -132,16 +132,16 @@ Repository organization
 
     * **`test/`**
 
-        This folder contains the [S2I](https://github.com/openshift/source-to-image)
+        This folder contains the [S2I](https://github.com/Meros-io/source-to-image)
         test framework with a simple JEE application.
 
         * **`test-app/`**
 
-            A simple Node.JS echo server used for testing purposes by the [S2I](https://github.com/openshift/source-to-image) test framework.
+            A simple Node.JS echo server used for testing purposes by the [S2I](https://github.com/Meros-io/source-to-image) test framework.
 
         * **run**
 
-            This script runs the [S2I](https://github.com/openshift/source-to-image) test framework.
+            This script runs the [S2I](https://github.com/Meros-io/source-to-image) test framework.
 
 * **`hack/`**
 
@@ -150,13 +150,13 @@ Repository organization
 
 Image name structure
 ------------------------
-##### Structure: openshift/1-2-3
+##### Structure: deploydock/1-2-3
 
 1. Platform name (lowercase) - wildfly
 2. Platform version(without dots) - 81
 3. Base builder image - centos7
 
-Example: `openshift/wildfly-81-centos7`
+Example: `deploydock/wildfly-81-centos7`
 Environment variables
 ---------------------
 To set environment variables, you can place them as a key value pair into a `.sti/environment`
@@ -172,7 +172,7 @@ file inside your source code repository.
 
 * MYSQL_DATABASE
 
-    If set, WildFly will attempt to define a MySQL datasource based on the assumption you have an OpenShift service named "mysql" defined.
+    If set, WildFly will attempt to define a MySQL datasource based on the assumption you have an DeployDock service named "mysql" defined.
     It will attempt to reference the following environment variables which are automatically defined if the "mysql" service exists:
     MYSQL_SERVICE_PORT
     MYSQL_SERVICE_HOST
@@ -181,7 +181,7 @@ file inside your source code repository.
 
 * POSTGRESQL_DATABASE
 
-    If set, WildFly will attempt to define a PostgreSQL datasource based on the assumption you have an OpenShift service named "postgresql" defined.
+    If set, WildFly will attempt to define a PostgreSQL datasource based on the assumption you have an DeployDock service named "postgresql" defined.
     It will attempt to reference the following environment variables which are automatically defined if the "postgresql" service exists:
     POSTGRESQL_SERVICE_PORT
     POSTGRESQL_SERVICE_HOST
@@ -192,4 +192,4 @@ file inside your source code repository.
 Copyright
 --------------------
 
-Released under the Apache License 2.0. See the [LICENSE](https://github.com/openshift/sti-wildfly/blob/master/LICENSE) file.
+Released under the Apache License 2.0. See the [LICENSE](https://github.com/Meros-io/sti-wildfly/blob/master/LICENSE) file.

@@ -1,9 +1,9 @@
 # This image provides a base for building and running WildFly applications.
 # It builds using maven and runs the resulting artifacts on WildFly 8.1.
 
-FROM openshift/base-centos7
+FROM deploydock/base-centos7
 
-MAINTAINER Ben Parees <bparees@redhat.com>
+MAINTAINER Eric Sites <eric@meros.io>
 
 EXPOSE 8080
 
@@ -13,9 +13,9 @@ ENV MAVEN_VERSION 3.3.3
 
 LABEL io.k8s.description="Platform for building and running JEE applications on WildFly 8.1" \
       io.k8s.display-name="WildFly 8.1" \
-      io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,wildfly,wildfly81" \
-      io.openshift.s2i.destination="/opt/s2i/destination"
+      io.deploydock.expose-services="8080:http" \
+      io.deploydock.tags="builder,wildfly,wildfly81" \
+      io.deploydock.s2i.destination="/opt/s2i/destination"
 
 # Install Maven, Wildfly 8
 RUN yum install -y --enablerepo=centosplus \

@@ -1,5 +1,5 @@
-openshift-jee-sample
+deploydock-jee-sample
 ====================
 
-A sample app to be deployed on openshift environments
+A sample app to be deployed on deploydock environments
 

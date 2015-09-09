@@ -22,16 +22,16 @@
     "source" : {
       "type" : "Git",
       "git" : {
-        "uri": "git://github.com/openshift/wildfly-81-centos.git"
+        "uri": "git://github.com/Meros-io/wildfly-81-centos.git"
       }
     },
     "strategy": {
       "type": "Custom",
       "customStrategy": {
-        "image": "openshift/sti-image-builder",
+        "image": "deploydock/sti-image-builder",
         "exposeDockerSocket": true,
         "env": [
-          { "name": "IMAGE_NAME", "value": "openshift/wildfly-81-centos-candidate"}
+          { "name": "IMAGE_NAME", "value": "deploydock/wildfly-81-centos-candidate"}
         ]
       }
     }
